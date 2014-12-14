@@ -1,5 +1,8 @@
 package ru.fizteh.fivt.students.Soshilov.junit;
 
+import ru.fizteh.fivt.students.Soshilov.junit.storage.Table;
+import ru.fizteh.fivt.students.Soshilov.junit.storage.TableProvider;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -211,7 +214,7 @@ public class DataBaseTableProvider implements TableProvider {
      * @throws IOException In case if we can not write to a table.
      */
     public void write() throws IOException {
-        Shell.delete(dbPath);
+        Shell.deleteContent(dbPath);
 
         for (HashMap.Entry<String, DataBaseTable> entry: tables.entrySet()) {
             entry.getValue().write();

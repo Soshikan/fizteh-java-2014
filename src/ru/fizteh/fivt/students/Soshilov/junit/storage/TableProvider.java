@@ -1,4 +1,4 @@
-package ru.fizteh.fivt.students.Soshilov.junit;
+package ru.fizteh.fivt.students.Soshilov.junit.storage;
 
 /**
  * @author Fedor Lavrentyev

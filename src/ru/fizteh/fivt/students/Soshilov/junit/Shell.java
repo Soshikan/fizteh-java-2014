@@ -23,11 +23,22 @@ public class Shell {
 
     }
 
+    public static void deleteContent(final Path path) {
+
+        if (!Files.isDirectory(path)) {
+            throw new RuntimeException("Database is not located in a directory");
+        } else {
+            deleteDirectory(path, false);
+        }
+
+    }
+
     /**
      * Recursive deletion of directories (we consider them empty because we have read them).
      * @param path A Path to a directory, which should be deleted.
+     * @param deleteParent Boolean value: true if we should delete parent (directory) and false otherwise.
      */
-    private static void deleteDirectory(final Path path) throws RuntimeException {
+    private static void deleteDirectory(final Path path, boolean deleteParent) throws RuntimeException {
         File currentDirectory = new File(path.toString());
         File[] content = currentDirectory.listFiles();
 
@@ -40,17 +51,18 @@ public class Shell {
                         throw new RuntimeException("cannot delete file '" + item.toPath().toString() + "'");
                     }
                 } else {
-                    deleteDirectory(item.toPath());
+                    deleteDirectory(item.toPath(), true);
                 }
             }
         }
 
-        try {
-            Files.delete(path);
-        } catch (IOException ex) {
-            throw new RuntimeException("cannot delete '" + path.toString() + "'");
+        if (deleteParent) {
+            try {
+                Files.delete(path);
+            } catch (IOException ex) {
+                throw new RuntimeException("cannot delete '" + path.toString() + "'");
+            }
         }
-
     }
 
     /**
@@ -67,7 +79,7 @@ public class Shell {
                 throw new RuntimeException("cannot delete '" + dbPath.toString() + "'");
             }
         } else {
-            deleteDirectory(dbPath);
+            deleteDirectory(dbPath, true);
         }
     }
 }

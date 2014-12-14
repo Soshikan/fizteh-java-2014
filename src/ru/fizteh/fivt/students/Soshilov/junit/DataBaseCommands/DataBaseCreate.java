@@ -1,4 +1,9 @@
-package ru.fizteh.fivt.students.Soshilov.junit;
+package ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands;
+
+import ru.fizteh.fivt.students.Soshilov.junit.Command;
+import ru.fizteh.fivt.students.Soshilov.junit.CommandException;
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseTableProvider;
+import ru.fizteh.fivt.students.Soshilov.junit.Main;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +16,7 @@ public class DataBaseCreate implements Command {
      * Creates new table.
      * @param args Commands that were entered.
      * @param db Our main table.
-     * @throws CommandException Error in wrong arguments count.
+     * @throws ru.fizteh.fivt.students.Soshilov.junit.CommandException Error in wrong arguments count.
      */
     @Override
     public void execute(final String[] args, DataBaseTableProvider db) throws CommandException {

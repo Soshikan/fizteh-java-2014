@@ -1,5 +1,7 @@
 package ru.fizteh.fivt.students.Soshilov.junit;
 
+import ru.fizteh.fivt.students.Soshilov.junit.storage.TableProvider;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

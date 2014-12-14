@@ -1,4 +1,6 @@
-package ru.fizteh.fivt.students.Soshilov.junit;
+package ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands;
+
+import ru.fizteh.fivt.students.Soshilov.junit.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +13,7 @@ public class DataBaseCommit implements Command {
      * Commit changes.
      * @param args Commands that were entered.
      * @param db Our main table.
-     * @throws CommandException Error in wrong arguments count.
+     * @throws ru.fizteh.fivt.students.Soshilov.junit.CommandException Error in wrong arguments count.
      */
     @Override
     public void execute(final String[] args, DataBaseTableProvider db) throws CommandException {

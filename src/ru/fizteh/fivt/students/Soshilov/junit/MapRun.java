@@ -1,5 +1,12 @@
 package ru.fizteh.fivt.students.Soshilov.junit;
 
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands.*;
+import ru.fizteh.fivt.students.Soshilov.junit.TableCommands.TableGet;
+import ru.fizteh.fivt.students.Soshilov.junit.TableCommands.TableList;
+import ru.fizteh.fivt.students.Soshilov.junit.TableCommands.TablePut;
+import ru.fizteh.fivt.students.Soshilov.junit.TableCommands.TableRemove;
+import ru.fizteh.fivt.students.Soshilov.junit.storage.TableProvider;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;

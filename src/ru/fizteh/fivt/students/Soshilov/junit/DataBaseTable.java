@@ -1,5 +1,7 @@
 package ru.fizteh.fivt.students.Soshilov.junit;
 
+import ru.fizteh.fivt.students.Soshilov.junit.storage.Table;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -368,7 +370,7 @@ public class DataBaseTable  implements Table {
             try {
                 Files.createDirectory(tablePath);
             } catch (IOException ex) {
-                throw new IOException("cannot create a directory");
+                throw new IOException("cannot create a directory" + tablePath.toString());
             }
         }
 

@@ -1,4 +1,4 @@
-package ru.fizteh.fivt.students.Soshilov.junit;
+package ru.fizteh.fivt.students.Soshilov.junit.storage;
 
 /**
  * Представляет интерфейс для создание экземпляров {@link TableProvider}. Предполагается, что реализация интерфейса
