@@ -11,7 +11,7 @@ import ru.fizteh.fivt.students.Soshilov.junit.Main;
  * Date: 23 October 2014
  * Time: 1:53
  */
-public class DataBaseUse implements Command {
+public final class DataBaseUse implements Command {
     /**
      * Change current table and use a new one.
      * @param args Commands that were entered.
@@ -19,7 +19,7 @@ public class DataBaseUse implements Command {
      * @throws ru.fizteh.fivt.students.Soshilov.junit.CommandException Error in wrong arguments count.
      */
     @Override
-    public void execute(final String[] args, DataBaseTableProvider db) throws CommandException {
+    public void execute(final String[] args, final DataBaseTableProvider db) throws CommandException {
         final int argumentsCount = 1;
 
         Main.checkArguments("use", args.length, argumentsCount);

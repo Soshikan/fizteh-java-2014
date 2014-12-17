@@ -6,20 +6,20 @@ package ru.fizteh.fivt.students.Soshilov.junit;
  * Date: 07 December 2014
  * Time: 21:43
  */
-public class CommandException extends Exception {
+public final class CommandException extends Exception {
     public CommandException() {
         super();
     }
 
-    public CommandException(String message) {
+    public CommandException(final String message) {
         super(message);
     }
 
-    public CommandException(String message, Throwable cause) {
+    public CommandException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    public CommandException(Throwable cause) {
+    public CommandException(final Throwable cause) {
         super(cause);
     }
 

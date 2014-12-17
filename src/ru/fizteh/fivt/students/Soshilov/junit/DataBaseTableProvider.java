@@ -17,7 +17,7 @@ import java.util.Map;
  * Date: 07 December 2014
  * Time: 20:58
  */
-public class DataBaseTableProvider implements TableProvider {
+public final class DataBaseTableProvider implements TableProvider {
     /**
      * Tables: name + variable of Table class.
      */
@@ -43,7 +43,7 @@ public class DataBaseTableProvider implements TableProvider {
      * Set current table.
      * @param name A name of table that we want to be ours current.
      */
-    public void setCurrentTable(String name) {
+    public void setCurrentTable(final String name) {
         if (!tables.containsKey(name)) {
             System.out.println(name + " not exists");
             return;
@@ -66,7 +66,7 @@ public class DataBaseTableProvider implements TableProvider {
      * @throws IllegalArgumentException Если название таблицы null или имеет недопустимое значение.
      */
     @Override
-    public Table getTable(String name) {
+    public Table getTable(final String name) {
         if (name == null) {
             throw new IllegalArgumentException("Database '" + dbPath + "': getTable: null table name");
         }
@@ -92,7 +92,7 @@ public class DataBaseTableProvider implements TableProvider {
      * @return Объект, представляющий таблицу. Если таблица уже существует, возвращает null.
      * @throws IllegalArgumentException Если название таблицы null или имеет недопустимое значение.
      */
-    public Table createTable(String name) {
+    public Table createTable(final String name) {
 
         if (name == null) {
             throw new IllegalArgumentException("Database '" + dbPath + "': createTable: null table name");
@@ -125,7 +125,7 @@ public class DataBaseTableProvider implements TableProvider {
      * @throws IllegalArgumentException Если название таблицы null или имеет недопустимое значение.
      * @throws IllegalStateException Если таблицы с указанным названием не существует.
      */
-    public void removeTable(String name) {
+    public void removeTable(final String name) {
         if (name == null) {
             throw new IllegalArgumentException("Database '" + dbPath + "': removeTable: null Table name");
         }
@@ -162,18 +162,26 @@ public class DataBaseTableProvider implements TableProvider {
     }
 
     /**
-     * Return a path to a database.
-     * @return a path to database.
+     * Check whether the exit is possible: all data was commited or rollback.
+     * @return True if we can exit, false otherwise.
      */
-    public Path getDbPath() {
-        return dbPath;
+    public boolean isExitPossible() {
+
+        for (HashMap.Entry<String, DataBaseTable> entry: tables.entrySet()) {
+            DataBaseTable table = entry.getValue();
+            if (table.changedNum() != 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
      * OConstructor which assigns a dbPath field and makes a HashMap tables. Then we start reading.
      * @param inpPath The Path to database.
      */
-    public DataBaseTableProvider(Path inpPath) {
+    public DataBaseTableProvider(final Path inpPath) {
         dbPath = inpPath;
         try {
             read();
@@ -184,7 +192,7 @@ public class DataBaseTableProvider implements TableProvider {
     }
 
     /**
-     * Reading from database (it contains 16 directories, each contains 16 files), by using read from class Table
+     * Reading from database (it contains 16 directories, each contains 16 files), by using read from class Table.
      * @throws IOException Exception In case if we can not read from a table.
      * @throws IllegalArgumentException Exception In case if we can not read from a table.
      */

@@ -6,7 +6,7 @@ package ru.fizteh.fivt.students.Soshilov.junit;
  * Date: 22 October 2014
  * Time: 22:27
  */
-public class Main {
+public final class Main {
     /**
      * Run the whole program.
      * @param args Arguments that were entered.
@@ -22,8 +22,10 @@ public class Main {
      * @param command THe command we examine.
      * @param length The count of arguments.
      * @param requiredLength The correct count.
+     * @throws CommandException Problems with arguments.
      */
-    public static void checkArguments(final String command, int length, int requiredLength) throws CommandException {
+    public static void checkArguments(final String command, final int length, final int requiredLength)
+            throws CommandException {
         if (length != requiredLength) {
             if (length < requiredLength) {
                 throw new CommandException(command + ": not enough arguments");
@@ -39,7 +41,7 @@ public class Main {
      * @param wordsInName Quantity of words that are command.
      * @return Array of strings without commands.
      */
-    public static String[] removeNameInArguments(final String[] args, int wordsInName) {
+    public static String[] removeNameInArguments(final String[] args, final int wordsInName) {
         String[] result = new String[args.length - wordsInName];
         System.arraycopy(args, wordsInName, result, 0, args.length - wordsInName);
         return result;

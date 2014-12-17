@@ -12,7 +12,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.UUID;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -24,7 +28,7 @@ import static org.junit.Assert.assertTrue;
  * Date: 07 December 2014
  * Time: 22:21
  */
-public class TableTest {
+public final class TableTest {
     Path dbPath;
     DataBaseTableProviderFactory factory = new DataBaseTableProviderFactory();
     DataBaseTableProvider provider;

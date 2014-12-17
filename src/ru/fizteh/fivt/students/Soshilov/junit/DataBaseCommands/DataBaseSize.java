@@ -1,6 +1,10 @@
 package ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands;
 
-import ru.fizteh.fivt.students.Soshilov.junit.*;
+import ru.fizteh.fivt.students.Soshilov.junit.Command;
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseTableProvider;
+import ru.fizteh.fivt.students.Soshilov.junit.CommandException;
+import ru.fizteh.fivt.students.Soshilov.junit.Main;
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseTable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,7 +12,7 @@ import ru.fizteh.fivt.students.Soshilov.junit.*;
  * Date: 07 December 2014
  * Time: 22:02
  */
-public class DataBaseSize implements Command {
+public final class DataBaseSize implements Command {
     /**
      * Quantity of pairs of key and value.
      * @param args Commands that were entered.
@@ -16,7 +20,7 @@ public class DataBaseSize implements Command {
      * @throws ru.fizteh.fivt.students.Soshilov.junit.CommandException Error in wrong arguments count.
      */
     @Override
-    public void execute(final String[] args, DataBaseTableProvider db) throws CommandException {
+    public void execute(final String[] args, final DataBaseTableProvider db) throws CommandException {
         final int argumentsCount = 0;
         Main.checkArguments("remove", args.length, argumentsCount);
 

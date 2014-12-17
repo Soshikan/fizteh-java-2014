@@ -7,7 +7,9 @@ import ru.fizteh.fivt.students.Soshilov.junit.DataBaseTableProviderFactory;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,7 +17,7 @@ import static org.junit.Assert.*;
  * Date: 07 December 2014
  * Time: 22:36
  */
-public class TableProviderTest {
+public final class TableProviderTest {
     DataBaseTableProviderFactory factory = new DataBaseTableProviderFactory();
 
     @Test

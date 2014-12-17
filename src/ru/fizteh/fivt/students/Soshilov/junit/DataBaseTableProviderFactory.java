@@ -13,7 +13,7 @@ import java.nio.file.Paths;
  * Date: 07 December 2014
  * Time: 21:34
  */
-public class DataBaseTableProviderFactory {
+public final class DataBaseTableProviderFactory {
     /**
      * Возвращает объект для работы с базой данных.
      *
@@ -21,10 +21,10 @@ public class DataBaseTableProviderFactory {
      * @return Объект для работы с базой данных.
      * @throws IllegalArgumentException Если значение директории null или имеет недопустимое значение.
      */
-    public TableProvider create(String dir) throws IllegalArgumentException {
+    public TableProvider create(final String dir) throws IllegalArgumentException {
 
         if (dir == null) {
-            throw new IllegalArgumentException("Database '" + dir + "': null path");
+            throw new IllegalArgumentException("Database: null path");
         }
 
         if (dir.contains("\000")) {

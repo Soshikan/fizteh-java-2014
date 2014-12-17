@@ -18,7 +18,7 @@ import java.util.Map;
  * Date: 07 December 2014
  * Time: 19:28
  */
-public class DataBaseTable  implements Table {
+public final class DataBaseTable  implements Table {
     /**
      * Data that was commited.
      */
@@ -48,7 +48,11 @@ public class DataBaseTable  implements Table {
      */
     private static final int F_AND_DIR_COUNT = 16;
 
-    public DataBaseTable(Path path) {
+    /**
+     * Constructor which puts path to variables.
+     * @param path A path to the table.
+     */
+    public DataBaseTable(final Path path) {
         tablePath = path;
         tableName = path.getFileName().toString();
     }
@@ -70,7 +74,7 @@ public class DataBaseTable  implements Table {
      * @throws IllegalArgumentException Если значение параметра key является null.
      */
     @Override
-    public String get(String key) throws IllegalArgumentException {
+    public String get(final String key) throws IllegalArgumentException {
 
         if (key == null) {
             throw new IllegalArgumentException("Table '" + tableName + "': get: null key");
@@ -110,7 +114,7 @@ public class DataBaseTable  implements Table {
      * @throws IllegalArgumentException Если значение параметров key или value является null.
      */
     @Override
-    public String put(String key, String value) {
+    public String put(final String key, final String value) {
 
         if (key == null) {
             throw new IllegalArgumentException("Table '" + tableName + "': put: null key");
@@ -161,7 +165,7 @@ public class DataBaseTable  implements Table {
      * @throws IllegalArgumentException Если значение параметра key является null.
      */
     @Override
-    public String remove(String key) {
+    public String remove(final String key) {
 
         if (key == null) {
             throw new IllegalArgumentException("Table '" + tableName + "': remove: null key");
@@ -250,7 +254,7 @@ public class DataBaseTable  implements Table {
     }
 
     /**
-     * Выводит список ключей таблицы
+     * Выводит список ключей таблицы.
      *
      * @return Список ключей.
      */

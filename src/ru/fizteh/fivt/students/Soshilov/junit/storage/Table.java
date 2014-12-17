@@ -10,6 +10,7 @@ public interface Table {
 
     /**
      * Возвращает название базы данных.
+     * @return название базы данных.
      */
     String getName();
 
@@ -65,7 +66,7 @@ public interface Table {
      */
     int rollback();
     /**
-     * Выводит список ключей таблицы
+     * Выводит список ключей таблицы.
      *
      * @return Список ключей.
      */

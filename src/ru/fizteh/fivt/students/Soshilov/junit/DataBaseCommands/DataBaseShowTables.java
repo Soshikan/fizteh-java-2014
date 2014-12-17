@@ -11,7 +11,7 @@ import ru.fizteh.fivt.students.Soshilov.junit.Main;
  * Date: 23 October 2014
  * Time: 1:56
  */
-public class DataBaseShowTables implements Command {
+public final class DataBaseShowTables implements Command {
     /**
      * Show every table and its' elements' quantity.
      * @param args Commands that were entered.
@@ -19,7 +19,7 @@ public class DataBaseShowTables implements Command {
      * @throws ru.fizteh.fivt.students.Soshilov.junit.CommandException Error in wrong arguments count.
      */
     @Override
-    public void execute(final String[] args, DataBaseTableProvider db) throws CommandException {
+    public void execute(final String[] args, final DataBaseTableProvider db) throws CommandException {
         final int argumentsCount = 0;
         Main.checkArguments("show tables", args.length, argumentsCount);
 

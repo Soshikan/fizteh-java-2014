@@ -13,5 +13,5 @@ public interface Command {
      * @param db Our main table.
      * @throws CommandException Error in wrong arguments count.
      */
-    void execute(final String[] args, DataBaseTableProvider db) throws CommandException;
+    void execute(final String[] args, final DataBaseTableProvider db) throws CommandException;
 }

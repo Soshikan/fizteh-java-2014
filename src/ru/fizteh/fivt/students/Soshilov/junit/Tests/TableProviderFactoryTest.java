@@ -11,7 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  * Date: 07 December 2014
  * Time: 22:36
  */
-public class TableProviderFactoryTest {
+public final class TableProviderFactoryTest {
     Path testDir;
 
     @Before

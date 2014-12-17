@@ -1,6 +1,12 @@
 package ru.fizteh.fivt.students.Soshilov.junit;
 
-import ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands.*;
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands.DataBaseCommit;
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands.DataBaseCreate;
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands.DataBaseDrop;
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands.DataBaseRollback;
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands.DataBaseShowTables;
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands.DataBaseSize;
+import ru.fizteh.fivt.students.Soshilov.junit.DataBaseCommands.DataBaseUse;
 import ru.fizteh.fivt.students.Soshilov.junit.TableCommands.TableGet;
 import ru.fizteh.fivt.students.Soshilov.junit.TableCommands.TableList;
 import ru.fizteh.fivt.students.Soshilov.junit.TableCommands.TablePut;
@@ -17,7 +23,7 @@ import java.util.Scanner;
  * Date: 22 October 2014
  * Time: 22:29
  */
-public class MapRun {
+public final class MapRun {
     /**
      * Map where every function is. Then we put the command of by entering the key.
      */
@@ -27,6 +33,9 @@ public class MapRun {
      */
     private static TableProvider db;
 
+    /**
+     * A sign, starting every line in interactive mode.
+     */
     public static final String SIGN_OF_INVITATION = "$ ";
 
     /**
@@ -56,6 +65,7 @@ public class MapRun {
     /**
      * We switch commands into different classes.
      * @param args Commands that were entered: name, its' arguments.
+     * @throws CommandException Problems with arguments.
      */
     public static void run(final String[] args) throws CommandException {
         if (args.length == 0) {
