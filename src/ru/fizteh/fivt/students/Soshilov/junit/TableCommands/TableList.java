@@ -25,12 +25,9 @@ public final class TableList implements Command {
     public void execute(final String[] args, final DataBaseTableProvider db) throws CommandException {
         final int argumentsCount = 0;
         Main.checkArguments("list", args.length, argumentsCount);
+        Main.checkDataBaseExisting(db);
 
         DataBaseTable table = db.getCurrentTable();
-        if (table == null) {
-            System.out.println("no table");
-            return;
-        }
 
         List<String> list = table.list();
 

@@ -36,6 +36,18 @@ public final class Main {
     }
 
     /**
+     * Check whether the database is used now for working or not.
+     * @param db A database we want to use.
+     */
+    public static void checkDataBaseExisting(final DataBaseTableProvider db) {
+        DataBaseTable table = db.getCurrentTable();
+        if (table == null) {
+            System.out.println("no table");
+            return;
+        }
+    }
+
+    /**
      * Removes name of function in arguments.
      * @param args Arguments that were entered.
      * @param wordsInName Quantity of words that are command.

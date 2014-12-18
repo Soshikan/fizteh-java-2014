@@ -23,12 +23,9 @@ public final class TableRemove implements Command {
     public void execute(final String[] args, final DataBaseTableProvider db) throws CommandException {
         final int argumentsCount = 1;
         Main.checkArguments("remove", args.length, argumentsCount);
+        Main.checkDataBaseExisting(db);
 
         DataBaseTable table = db.getCurrentTable();
-        if (table == null) {
-            System.out.println("no table");
-            return;
-        }
 
         String key = args[0];
         String value = table.remove(key);
